@@ -31,3 +31,16 @@
 <Color> ::= RGB(<Byte>,<Byte>,<Byte>)
 <Byte> ::= 0 .. 255
 
+
+<Sentencia> ::= <SentenciaAsignación> | <SentenciaImpresion> | <SentenciaLectura> |<SentenciaSalto> | <SentenciaRetorno> | <SentenciaPausa> | <SentenciaCondicional> | <SentenciaWhile> | <SentenciaDoWhile> | <SentenciaFor> |<Bloque>
+
+<SentenciaAsignación> ::= <Variable> = <Expresion>
+
+<Expresion> ::= <Expresion><OperadorBinario><Expresion> | <OperadorUnario><Expresion> | <Expresion><OperadorLogico><Expresion> | <Variable> | <Numero> | <Cadena> |  (<Expresion>) | <Variable> (<ListaDeArgumentos>)
+
+<OperadorBinario> ::= + |  - | * |  / | %
+<OperadorUnario> ::= !
+<OperadorLogico> ::= Y | O | != | == | > | < | <= | >=
+
+<ListaDeArgumentos> ::=<ListaDeExpresiones> | E
+<ListaDeExpresiones> ::=<Expresión> | <Expresion> , <ListaDeExpresiones>
