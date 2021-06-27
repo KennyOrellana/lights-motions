@@ -44,3 +44,14 @@
 
 <ListaDeArgumentos> ::=<ListaDeExpresiones> | E
 <ListaDeExpresiones> ::=<Expresión> | <Expresion> , <ListaDeExpresiones>
+
+<SentenciaImpresion> ::= IMPRIMIR <ListaDeImpresion> 
+<ListaDeImpresion> ::= <ElementoImpresión> | <ListaDeImpresion> , <ElementoImpresion>
+<ElementoImpresion> ::= <Expresión> | “<Cadena>”
+
+<SentenciaLectura> ::= LEER <ElementoLectura> 
+<ElementoLectura> ::= <Cadena> | <Numero>
+
+<SentenciaRetorno> ::= RETORNAR <Expresion>
+<SentenciaSalto> ::= CONTINUAR
+<SentenciaPausa> ::= PAUSA
