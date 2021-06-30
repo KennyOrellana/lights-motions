@@ -55,3 +55,15 @@
 <SentenciaRetorno> ::= RETORNAR <Expresion>
 <SentenciaSalto> ::= CONTINUAR
 <SentenciaPausa> ::= PAUSA
+
+<SentenciaCondicional> ::= SI<Expresión>ENTONCES <Sentencia>FIN | SI<Expresión>ENTONCES<Sentencia>SINO<Sentencia>FIN
+
+<SentenciaWhile> ::= MIENTRAS (<Expresión>) HACER<Sentencia>FIN
+<SentenciaDoWhile> ::= HACER<Sentencia>MIENTRAS (<Expresion>);
+<SentenciaFor> ::= PARA(<SentenciaAsignacion>; <Expresión>; <Variable>)<Sentencia>
+
+<Bloque> ::= [{]<ListaDeDeclaraciones><ListaDeSentencias>[}]
+
+<ListaDeDeclaraciones> ::=<Declaración><ListaDeDeclaraciones> | E
+<Declaración> ::= DECLARAR <ListaDeVariables>
+<ListaDeSentencias> ::= <Sentencia > | <ListaDeSentencias><Sentencia>
