@@ -31,8 +31,7 @@
 <Color> ::= RGB(<Byte>,<Byte>,<Byte>)
 <Byte> ::= 0 .. 255
 
-
-<Sentencia> ::= <SentenciaAsignación> | <SentenciaImpresion> | <SentenciaLectura> |<SentenciaSalto> | <SentenciaRetorno> | <SentenciaPausa> | <SentenciaCondicional> | <SentenciaWhile> | <SentenciaDoWhile> | <SentenciaFor> |<Bloque>
+<Sentencia> ::= <SentenciaAsignación> | <SentenciaImpresion> | <SentenciaLectura> |<SentenciaSalto> | <SentenciaRetorno> | <SentenciaPausa> | <SentenciaTerminar> | <SentenciaCondicional> | <SentenciaWhile> | <SentenciaDoWhile> | <SentenciaFor> | <SentenciaTryCatch> | <Bloque>
 
 <SentenciaAsignación> ::= <Variable> = <Expresion>
 
@@ -50,7 +49,8 @@
 <ElementoImpresion> ::= <Expresión> | “<Cadena>”
 
 <SentenciaLectura> ::= LEER <ElementoLectura> 
-<ElementoLectura> ::= <Cadena> | <Numero>
+<ElementoLectura> ::= <Cadena> | <Numero> | <DireccionDocumento>
+<DireccionDocumento> ::= RUTA(<Cadena>)
 
 <SentenciaRetorno> ::= RETORNAR <Expresion>
 <SentenciaSalto> ::= CONTINUAR
