@@ -32,7 +32,11 @@
 <Byte> ::= 0 .. 255
 
 <Documento> ::= DOCUMENTO (<DireccionDocumento> | <DireccionDocumento>, <ContenidoDocumento>)
-<DireccionDocumento> ::= RUTA(<Cadena>)
+
+<EjecutarDocumento> :: = RUN <DireccionDocumento>
+<DireccionDocumento> ::=<Ruta><Cadena> | <Ruta><Cadena><Ruta>
+<Ruta> ::= <cadena>/<Cadena> 
+
 <ContenidoDocumento> ::= <Cadena>
 
 <Sentencia> ::= <SentenciaAsignación> | <SentenciaEscritura> | <SentenciaLectura> |<SentenciaSalto> | <SentenciaRetorno> | <SentenciaPausa> | <SentenciaTerminar> | <SentenciaCondicional> | <SentenciaWhile> | <SentenciaDoWhile> | <SentenciaFor> | <SentenciaTryCatch> | <Bloque>
