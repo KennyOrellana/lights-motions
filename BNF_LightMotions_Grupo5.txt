@@ -55,12 +55,14 @@
 <SentenciaRetorno> ::= RETORNAR <Expresion>
 <SentenciaSalto> ::= CONTINUAR
 <SentenciaPausa> ::= PAUSA
+<SentenciaTerminar> ::= EXIT
 
 <SentenciaCondicional> ::= SI<Expresión>ENTONCES <Sentencia>FIN | SI<Expresión>ENTONCES<Sentencia>SINO<Sentencia>FIN
 
 <SentenciaWhile> ::= MIENTRAS (<Expresión>) HACER<Sentencia>FIN
 <SentenciaDoWhile> ::= HACER<Sentencia>MIENTRAS (<Expresion>);
 <SentenciaFor> ::= PARA(<SentenciaAsignacion>; <Expresión>; <Variable>)<Sentencia>
+<SentenciaTryCatch> ::= INTENTAR <Sentencia> CAPTURAR <Sentencia> FIN
 
 <Bloque> ::= [{]<ListaDeDeclaraciones><ListaDeSentencias>[}]
 
