@@ -31,7 +31,7 @@
 <Color> ::= RGB(<Byte>,<Byte>,<Byte>)
 <Byte> ::= 0 .. 255
 
-<Sentencia> ::= <SentenciaAsignación> | <SentenciaImpresion> | <SentenciaLectura> |<SentenciaSalto> | <SentenciaRetorno> | <SentenciaPausa> | <SentenciaTerminar> | <SentenciaCondicional> | <SentenciaWhile> | <SentenciaDoWhile> | <SentenciaFor> | <SentenciaTryCatch> | <Bloque>
+<Sentencia> ::= <SentenciaAsignación> | <SentenciaEscritura> | <SentenciaLectura> |<SentenciaSalto> | <SentenciaRetorno> | <SentenciaPausa> | <SentenciaTerminar> | <SentenciaCondicional> | <SentenciaWhile> | <SentenciaDoWhile> | <SentenciaFor> | <SentenciaTryCatch> | <Bloque>
 
 <SentenciaAsignación> ::= <Variable> = <Expresion>
 
@@ -44,9 +44,9 @@
 <ListaDeArgumentos> ::=<ListaDeExpresiones> | E
 <ListaDeExpresiones> ::=<Expresión> | <Expresion> , <ListaDeExpresiones>
 
-<SentenciaImpresion> ::= IMPRIMIR <ListaDeImpresion> 
-<ListaDeImpresion> ::= <ElementoImpresión> | <ListaDeImpresion> , <ElementoImpresion>
-<ElementoImpresion> ::= <Expresión> | “<Cadena>”
+<SentenciaEscritura> ::= IMPRIMIR <ListaDeEscritura> 
+<ListaDeEscritura> ::= <ElementoEscritura> | <ListaDeEscritura> , <ElementoEscritura>
+<ElementoEscritura> ::= <Expresión> | “<Cadena>”
 
 <SentenciaLectura> ::= LEER <ElementoLectura> 
 <ElementoLectura> ::= <Cadena> | <Numero> | <DireccionDocumento>
