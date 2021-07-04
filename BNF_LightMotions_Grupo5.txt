@@ -42,8 +42,12 @@
 
 <SentenciaAsignación> ::= <Variable> = <Expresion>
 
-<Expresion> ::= <Expresion><OperadorBinario><Expresion> | <OperadorUnario><Expresion> | <Expresion><OperadorLogico><Expresion> | <Variable> (<ListaDeArgumentos>) | <ElementosExpresion>
+<Expresion> ::=  <ExprecionBinaria> | <ExprecionUnaria> | <ExprecionLogica> | <ElementosExpresion>   
+//<Variable> (<ListaDeArgumentos>)
 
+<ExprecionBinaria> ::= <Expresion><OperadorBinario><Expresion>
+<ExprecionUnaria> ::= <OperadorUnario><Expresion>
+<ExprecionLogica> ::= <Expresion><OperadorLogico><Expresion>
 <ElementosExpresion> ::= <Variable> | <Numero> | <Cadena> |  (<Expresion>)
 
 <OperadorBinario> ::= + |  - | * |  / | %
