@@ -33,8 +33,8 @@
 <Byte> ::= 0 .. 255
 
 <Documento> ::= DOCUMENTO (<DireccionDocumento> | <DireccionDocumento>, <ContenidoDocumento>)
-<DireccionDocumento> ::=<Ruta><Cadena> | <Ruta><Cadena><Ruta> | <Ruta><Variable> | <Ruta><Variable><Ruta> 
-<Ruta> ::= <cadena>/<Cadena>
+<DireccionDocumento> ::=RUTA(<Direccion>)
+<Direccion> ::= <cadena>/ | <Direccion><Cadena>
 <ContenidoDocumento> ::= <Cadena>
 <EjecutarDocumento> :: = RUN <DireccionDocumento>
 
@@ -42,11 +42,13 @@
 
 <SentenciaAsignación> ::= <Variable> = <Expresion>
 
-<Expresion> ::= <Expresion><OperadorBinario><Expresion> | <OperadorUnario><Expresion> | <Expresion><OperadorLogico><Expresion> | <Variable> | <Numero> | <Cadena> |  (<Expresion>) | <Variable> (<ListaDeArgumentos>)
+<Expresion> ::= <Expresion><OperadorBinario><Expresion> | <OperadorUnario><Expresion> | <Expresion><OperadorLogico><Expresion> | <Variable> (<ListaDeArgumentos>) | <ElementosExpresion>
+
+<ElementosExpresion> ::= <Variable> | <Numero> | <Cadena> |  (<Expresion>)
 
 <OperadorBinario> ::= + |  - | * |  / | %
 <OperadorUnario> ::= !
-<OperadorLogico> ::= Y | O | != | == | > | < | <= | >=
+<OperadorLogico> ::= Y O | | != | == | > | < | <= | >=
 
 <ListaDeArgumentos> ::=<ListaDeExpresiones> | E
 <ListaDeExpresiones> ::=<Expresión> | <Expresion> , <ListaDeExpresiones>
