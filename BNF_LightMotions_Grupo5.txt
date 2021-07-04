@@ -9,18 +9,19 @@
 <Instruccion> ::= <ListaDeFunciones> | <Sentencia> | <Instruccion><ListaDeFunciones> | <Instruccion><Sentencia>
 
 <ListaDeFunciones> ::= <Función> | <ListaDeFunciones><Función>
-<Función> ::= FUNCION<Variable>(<ListaDeParámetros>)<Sentencia>FIN
+<Función> ::= FUNCION<Id>(<ListaDeParámetros>)<Sentencia>FIN
 <ListaDeParámetros> ::= <ListaDeVariables> | E
 <ListaDeVariables> ::= <Variable> | <ListaDeVariables > , <Variable>
 
-<Variable> ::= <Letra> | <Variable><Alfanumerico>
+<Id> ::= <Letra> | <Id><Alfanumerico>
 <Alfanumerico> ::= < Letra> | <Dígito>
 <Letra> ::= a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z
 
 <Cadena> ::= <Caracter> | <Cadena><Caracter>
 <Caracter> ::= <Digito> | <Letra> |  | - | _ | ( | ) | [ | ] | { | } | # | ? | ¿ | ¡ | ! | . | : | ; | , | ‘ | ` | ´ | ¨ |& | $ | ¬ | ~ | ^ | \ |° | = | <OperadorBinario> | \n | \r |
 
-<Numero> ::= <Signo><Entero> | <Signo><Flotante>
+<Numero> ::= <Signo><Entero> | <Signo><Flotante> 
+<Variable> ::= VAR<Id> = <Signo><Entero> | <Signo><Flotante> | <Cadena> | <Color>
 <Entero> ::= <Digito> | <Entero><Digito>
 <Flotante> ::= <Entero> . <Entero>
 <Dígito> ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
@@ -32,7 +33,7 @@
 <Byte> ::= 0 .. 255
 
 <Documento> ::= DOCUMENTO (<DireccionDocumento> | <DireccionDocumento>, <ContenidoDocumento>)
-<DireccionDocumento> ::=<Ruta><Cadena> | <Ruta><Cadena><Ruta>
+<DireccionDocumento> ::=<Ruta><Cadena> | <Ruta><Cadena><Ruta> | <Ruta><Variable> | <Ruta><Variable><Ruta> 
 <Ruta> ::= <cadena>/<Cadena>
 <ContenidoDocumento> ::= <Cadena>
 <EjecutarDocumento> :: = RUN <DireccionDocumento>
