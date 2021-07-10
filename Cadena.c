@@ -19,7 +19,7 @@ int main(){
 }
 
 
-//funcion cadena devuelve un 1 si la cadena es valida y un 0 en caso contrario
+//funcion cadena devuelve un true si la cadena es valida y un false en caso contrario
 bool cadena(char palb[]){
 	int conta =0;
 	while(conta< strlen(palb)){
