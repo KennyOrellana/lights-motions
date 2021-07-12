@@ -7,7 +7,7 @@ bool flotante(char a[]);
 bool entero(char a[]);
 bool variable(char a[]);
 bool color(char a[]);
-char *Temporal[]={"SI","(","VARIABLE","==","7",")","{","-"};
+char *Temporal[]={"SI","(","VARIABLE","==","7",")","{","}","SINO","{","}"};
 int contador=0;
 
 //metodo main solamente para prueba de la funcion
@@ -58,15 +58,46 @@ bool SI(){
 							contador++;
 							//confirmamos que se cierren los corchetes para darle fin a la instruccion
                             if (Temporal[contador]=="}"){
-								printf("--Instruccion    SI, aceptada como valida");
 								contador++;
-								//hacemos la recursividad para que se analizen las siguientes instrucciones
-								if (Temporal[contador] == "si" || Temporal[contador] == "sino" || Temporal[contador] == "mientras" || Temporal[contador] == "definir" || Temporal[contador] == "encender" || Temporal[contador] == "apagar"){
-									//EncontrarComandos();
-									return true;
-								}else{
-									return false;
+								//Revisamos que la siguiente palabra corresponda a SINO
+								if (Temporal[contador]=="SINO"){
+                                    contador++;
+                                    //confirmamos que se abran los corchetes de la instruccion si
+                                    if (Temporal[contador]=="{"){
+                                        contador++;
+                                        //confirmamos que se cierren los corchetes para darle fin a la instruccion
+                                        if (Temporal[contador]=="}"){
+                                            printf("--Instruccion SI con SINO, aceptada como valida");
+                                            contador++;
+                                            //hacemos la recursividad para que se analizen las siguientes instrucciones
+                                            if (Temporal[contador] == "SI" || Temporal[contador] == "MIENTRAS" || Temporal[contador] == "VAR"){
+                                                //EncontrarComandos();
+                                                return true;
+                                            }else{
+                                                return false;
+                                            }
+                                        }else{
+                                            printf("--Error de sintaxis en la instruccion SI, no se reconocio como valido, se esperava un '}'");
+                                            contador++;
+                                            return false;
+                                        }
+                                    }else{
+                                        printf("--Error de sintaxis en la instruccion SI, no se reconocio como valido, se esperava un '{'");
+                                        contador++;
+                                        return false;
+                                    }
+                                }else{
+                                    printf("--Instruccion SI, aceptada como valida");
+                                    //hacemos la recursividad para que se analizen las siguientes instrucciones
+                                    if (Temporal[contador] == "SI" || Temporal[contador] == "MIENTRAS"){
+                                        //EncontrarComandos();
+                                        return true;
+                                    }else{
+                                        return false;
+                                    }
 								}
+
+
 							//todos los else, imprimen un mensaje de que las instrucciones no escribieron de la manera correcta
                             }else{
                                 printf("--Error de sintaxis en la instruccion SI, no se reconocio como valido, se esperava un '}'");
