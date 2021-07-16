@@ -13,7 +13,7 @@ int main( )
     TEstado Estado;
 
     //variables
-    char cadena[10000]; // es donde se almacenara la cadena
+    char secundari[100]; // es donde se almacenara la cadena
     int Simbolo;    //puede tomar el valor de un caracter de la tablas ASCII
     bool EsNumero;
 
@@ -23,14 +23,17 @@ int main( )
     //Definiciendo los valores iniciales
     i = longitud = 0;
     Estado = q0;
-
+    int cadena[0];
 
     printf("Ingrese una cadena de numeros: ");
-    scanf("%s", &cadena);
-    longitud = strlen(cadena);
+    scanf("%s", &secundari);
+    longitud = strlen(secundari);
     printf("tamanio cadena ingresada: %d", longitud);
 
-    longitud = strlen(cadena);
+    cadena[longitud] = secundari;
+  //  printf(cadena[0]);
+
+   // longitud = strlen(cadena);
 
     while(longitud>i)
     {
