@@ -4,8 +4,8 @@
 #include <string.h>
 
 bool variable(char cadena[]);
-bool expresion(char cadena[]);
 
+/*
 int main()
 {
     printf("%d\n", variable("YHWH"));
@@ -14,12 +14,13 @@ int main()
 
     printf("%d\n", variable("26YHWH"));
 }
+*/
 
 
 //funcion para reconocer si es una palabra o cadena lo ingresado
 bool variable(char cadena[])
 {
-    printf("%s: ", cadena);
+    //printf("%s: ", cadena);
 
 	typedef enum {q0,q1,q2,qe} TEstado;
 
@@ -45,7 +46,7 @@ bool variable(char cadena[])
 				else
 				{
 					Estado = qe;
-					printf("Error q0: ");
+					//printf("Error Variable q0: ");
 				}
 				break;
             }
@@ -62,7 +63,7 @@ bool variable(char cadena[])
 				else
 				{
 					Estado = qe;
-					printf("Error q1: ");
+					//printf("Error Variable q1: ");
 				}
 				break;
             }
@@ -76,7 +77,7 @@ bool variable(char cadena[])
 				else
 				{
 					Estado = qe;
-					printf("Error q2: ");
+					//printf("Error Variable q2: ");
 				}
                 break;
             }
@@ -99,9 +100,4 @@ bool variable(char cadena[])
 	{
 		return false;
 	}
-}
-
-bool expresion(char cadena[])
-{
-
 }
