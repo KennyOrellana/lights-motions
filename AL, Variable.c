@@ -4,6 +4,8 @@
 #include <string.h>
 
 bool variable(char cadena[]);
+bool esLetra(char Simbolo);
+bool esDigito(char Simbolo);
 
 /*
 int main()
@@ -100,4 +102,28 @@ bool variable(char cadena[])
 	{
 		return false;
 	}
+}
+
+bool esLetra(char Simbolo)
+{
+    if((Simbolo >= 'a' && Simbolo <= 'z') || (Simbolo >= 'A' && Simbolo <= 'Z'))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+bool esDigito(char Simbolo)
+{
+    if(Simbolo >= '0' && Simbolo <= '9')
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
