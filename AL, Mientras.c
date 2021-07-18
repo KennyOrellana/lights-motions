@@ -5,14 +5,15 @@
 #include<stdbool.h>
 #include<string.h>
 
-// Falta idear la manera de que detecte el FIN de cierre
-/// Posible: contador de cuantas cosas se ABren, y que al finalizar de revisar el archivo verifique si la cantidad de Cierres es equivalente
+/// Falta idear la manera de que detecte el FIN de cierre
+// Posible: contador de cuantas cosas se Abren, y que al finalizar de revisar el archivo verifique si la cantidad de Cierres es equivalente
 
 char TablaSimbolos[][16] = {"MIENTRAS", "HACER", "FIN"};
 int longitudPTS[3] = {8, 5, 3};
 
 bool mientras(char cadena[]);
 
+/*
 int main()
 {
     //printf("%s", TablaSimbolos[0]);
@@ -25,6 +26,7 @@ int main()
 
     return 0;
 }
+*/
 
 bool mientras(char cadena[])
 {
