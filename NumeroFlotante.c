@@ -21,29 +21,38 @@ int main( )
     int longitud; // tomara el valor de longitud de la cadena
 
     //Definiciendo los valores iniciales
-    i = longitud = 0;
+    i = 0;
+    longitud = 0;
     Estado = q0;
-    int cadena[0];
+  //  char cadena[0];
 
     printf("Ingrese una cadena de numeros: ");
     scanf("%s", &secundari);
+    printf("letra: %s\n\n",secundari);
     longitud = strlen(secundari);
     printf("tamanio cadena ingresada: %d", longitud);
 
-    cadena[longitud] = secundari;
-  //  printf(cadena[0]);
+  //  cadena[longitud] = secundari;
+
+  //  printf("letra: %s\n\n",cadena);
 
    // longitud = strlen(cadena);
 
-    while(longitud>i)
+    while(secundari[i] !='\0')
     {
-        Simbolo = cadena[i];
+
+        //Simbolo = cadena[i];
+        Simbolo = secundari[i];
+        //printf("simbolo: %s\n\n",secundari[i]);
+
         switch ( Estado)
         {
         case q0:
             //Si es un simbolo valido cambia de estado en este caso menos(-) o mas(+)
-            if(Simbolo == '-' || Simbolo == '+')
+            if(Simbolo == '-' || Simbolo == '+' )
             {
+                Estado = q1;
+            }else{
                 Estado = q1;
             }
             break;
