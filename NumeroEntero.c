@@ -1,64 +1,82 @@
 
 
 #include <stdio.h>
+
 #include <stdlib.h>
 #include <stdbool.h>
 
-bool numero(char p[100]);
-int main()
+int main( )
 {
+    //Tipos de dato Estados
 
-
-    return 0;
-}
-
-
-
-bool numero(char cadena[100])
-{
-    typedef enum {q0,q1} TEstado;
-
+    typedef enum {q0,q1,q2} TEstado;
+    //variable de estado
     TEstado Estado;
 
-    char Caden[100];
-    int sinbolo;
+    //variables
+    char secundari[100]; // es donde se almacenara la cadena
     bool EsNumero;
 
-    int i;
-    int longitud;
+    int i; //iterador
 
-    i=longitud = 0;
+
+    //Definiciendo los valores iniciales
+    i = 0;
+    int longitud = 0;
     Estado = q0;
-    EsNumero = false;
+    printf("estado %d: ", q0);
 
-    longitud = strlen(cadena);
 
-    while(longitud>i)
+    printf("Ingrese una cadena de numeros: ");
+    scanf("%s", &secundari);
+    printf("letra: %s\n\n",secundari);
+    longitud = strlen(secundari);
+    printf("tamanio cadena ingresada: %d", longitud);
+
+
+
+    while(secundari[i] !='\0')
     {
 
-        simbolo = Caden[i];
-        EsNumero = (simbolo >='0'&& simbolo <= '9');
+        EsNumero = (secundari[i] >= '0' && secundari[i] <= '9');
 
-        if(Estado ==q0)
+        switch (Estado)
         {
-            id(EsNumero)
+        case q0:
+            //Si es un simbolo valido cambia de estado en este caso menos(-) o mas(+)
+            if(secundari[i] == '-' || secundari[i] == '+' )
             {
-                Estado =q1;
+                Estado = q1;
+            }else{
+                Estado = q1;
             }
-        }
-        if (!EsNumero)
-        {
-            Estado = q0;
+            break;
+        case q1:
+            //Si secundari[i] es un digito entre cero y nueve cambia de estado
+            if(EsNumero)
+            {
+                Estado = q2;
+            }
+            break;
+
+        case q2:
+            //Si secundari[i] es un digito entre cero y nueve no cambia de estado
+            if(EsNumero)
+            {
+                Estado = q2;
+            }
             break;
         }
+
+        //iterador aunmeta y avanza al siguiente caracter de la cadena
         i++;
+
     }
-    if (Estado==q1)
-        return true;
+
+    if(Estado == q2)
+        printf("Cadena acepatada");
     else
-        return false;
+        printf("Cadena No acepatada");
 
-
-
-
+    return 0;
 }
