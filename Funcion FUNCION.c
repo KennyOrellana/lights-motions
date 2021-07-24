@@ -8,7 +8,7 @@
 
 char TablaSimbolos[][16] = {"FUNCION", "FIN"};
 int longitudPTS[2] = {7, 3};
-char *TablaSimbolosTipos[][16] = {"ENTERO", "FLOTANTE", "BYTE", "NUMERO", "BOOL", "LETRA", "STRING", "COLOR"};
+char *TablaSimbolosTipos[] = {"ENTERO", "FLOTANTE", "BYTE", "NUMERO", "BOOL", "LETRA", "STRING", "COLOR"};
 
 bool funcion(char cadena[]);
 bool declaracionFuncion(char cadena[]);
@@ -25,7 +25,9 @@ int main()
     //printf("%i\n", mientras("MAENTRAS (YHWH == 26) HACAR"));
     return 0;
 }
+bool declaraF(char cadena[]){
 
+}
 
 
 bool variable(char cadena[])
@@ -120,49 +122,49 @@ bool declaracionFuncion(char cadena[]){
 
     int longitud = strlen(cadena);
 
-
+    //printf("%s:\n",cadena);
     bool tipoEncontrado = false;
-    int inicioTipo = 0;
     int tipo = 0;
-    int cont=0,i=0;
-    int vista=0;
+    int i=0;
+    int tam= sizeof(TablaSimbolosTipos) / sizeof(char *);
+    char *token, *token2;
+    token = strtok(cadena, ",");
+    //printf("%s:\n",token);
 
-    while(cont==0)
+    while(token != NULL)
     {
-        for(i; i<longitud; i++)
-        {
-            if(cadena[i]==" ")
+        token2 = strtok(token, " ");
+        //printf("%s:\n",token2);
+        if(token2 != NULL){
+            for(i; i<longitud; i++)
             {
-                continue;
-            }
-            for(int j=0; j<strlen(TablaSimbolosTipos); j++)
-            {
-                for(int y=0; y<strlen(TablaSimbolosTipos[j]); y++)
+                //printf("siguiente");
+                for(int j=0; j<tam; j++)
                 {
                     tipoEncontrado = true;
-                    //char simbolo=cadena[i];
-                    //printf("pre: %s \n", simbolo);
-                    if( cadena[i] == TablaSimbolosTipos[j][y])
+                    //printf("%s \n",TablaSimbolosTipos[j]);
+
+                    if(strcmp(token2,TablaSimbolosTipos[j]) == 0)
                     {
                         tipo = j;
                         //printf("%s : \n", scTipo);
                     }else{
                         tipoEncontrado = false;
+                    }
+
+                    if(tipoEncontrado)
+                    {
                         break;
                     }
                 }
+
                 if(tipoEncontrado)
                 {
                     break;
                 }
             }
-
-            if(tipoEncontrado)
-            {
-                vista=i+1;
-                break;
-            }
         }
+
 
         if(tipoEncontrado==true)
         {
@@ -172,40 +174,16 @@ bool declaracionFuncion(char cadena[]){
             //printf("%i\n", tipo);
 
             //printf("%i\n", longitud-strlen(TablaSimbolosTipos[tipo]));
-            while(cont==0)
-            {
-               if(cadena[vista]==' ')
-                {
-                    vista++;
-                }else
-                {
-                    break;
-                }
-            }
-            int pep=vista+1;
-            while(pep<longitud)
-            {
-               if(cadena[pep]==' ' || cadena[pep]==',' || cadena[pep]=='\0')
-                {
-                    break;
-                }
-                pep++;
-            }
-
-            char subCadena_1[pep-vista + 1];
-            strncpy(subCadena_1, &cadena[vista], pep-vista);
-            subCadena_1[pep-vista] = '\0';
-            //printf("%s : %i\n", subCadena_1, strlen(subCadena_1));
-
-            printf("hola %s:\n",subCadena_1);
-
-            if(subCadena_1 != NULL)
+            printf("entre %s\n",token2);
+            token2 = strtok(NULL, " ");
+            printf("entre %s\n",token2);
+            if(token2 != NULL)
             {
                 switch(Estado)
                 {
                     case q1:
                     {
-                        if(variable(subCadena_1))
+                        if(variable(token2))
                         {
                             Estado = q2;
                         }
@@ -218,7 +196,7 @@ bool declaracionFuncion(char cadena[]){
                     }
                     case q2:
                     {
-                        if(variable(subCadena_1))
+                        if(variable(token2))
                         {
                             Estado = q2;
                         }
@@ -237,12 +215,13 @@ bool declaracionFuncion(char cadena[]){
             Estado = qe;
             printf("Error q0: ");
         }
-        if(Estado != q2)
+        /*if(Estado != q2)
         {
             break;
-        }
-
-
+        }*/
+        token = strtok(cadena, ",");
+        token = strtok(NULL, " ");
+        printf("\n%s :",token);
     }
 
 
@@ -307,8 +286,7 @@ bool funcion(char cadena[])
                 char condicion[(finDeclaracion-inicioDeclaracion-1)+1];
                 strncpy(condicion, &cadena[inicioDeclaracion+1], (finDeclaracion-inicioDeclaracion));
                 condicion[finDeclaracion-inicioDeclaracion-1] = '\0';
-                printf("%s\n", condicion[5]);
-
+                //printf("%s\n", condicion);
                 if(declaracionFuncion(condicion))
                 {
                     Estado = q2;
