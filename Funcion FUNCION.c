@@ -19,10 +19,9 @@ int main()
 {
     //printf("%s", TablaSimbolos[0]);
     //printf("%i", strlen(TablaSimbolos[0]));
-    printf("%i\n", funcion("FUNCION (BOOL teto)"));
+    printf("%i\n", funcion("FUNCION (STRING teto)"));
     printf("%i\n", funcion("     FUNCION (BOOL oscar,LETRA romeo1234,COLOR estado)"));
-    //printf("%i\n", mientras("MIENTRAS (YHWH ## 26) HACER"));
-    //printf("%i\n", mientras("MAENTRAS (YHWH == 26) HACAR"));
+    printf("%i\n", funcion("FUNCION ()"));
     return 0;
 }
 bool declaraF(char cadena[]){
@@ -256,45 +255,48 @@ bool funcion(char cadena[])
             if(finDeclaracion > 0)
             {
                 int inicio=inicioDeclaracion;//guardamos el inicio
-                //creamos todas las cadenas separadas por una ',' y estas siendo analizadas de forma independiente.
-                for(int e=inicioDeclaracion+1;e<finDeclaracion;e++){
-                    //se calcula en que pocicion se encontro una coma
-                    if(cadena[e] == ','){
-                        //creamos una intancia que nos guarda esa seccion de cadena
-                        char condicion[e-inicio];
-                        strncpy(condicion, &cadena[inicio+1], (e-inicio));
-                        condicion[e-inicio-1] = '\0';
-                        //printf("lo esta haciendo: %s\n",condicion);
+                if(inicioDeclaracion==finDeclaracion-1){
+                    Estado = q2;//si lo esta cambiamos de estado
+                }else{
+                    //creamos todas las cadenas separadas por una ',' y estas siendo analizadas de forma independiente.
+                    for(int e=inicioDeclaracion+1;e<finDeclaracion;e++){
+                        //se calcula en que pocicion se encontro una coma
+                        if(cadena[e] == ','){
+                            //creamos una intancia que nos guarda esa seccion de cadena
+                            char condicion[e-inicio];
+                            strncpy(condicion, &cadena[inicio+1], (e-inicio));
+                            condicion[e-inicio-1] = '\0';
+                            //printf("lo esta haciendo: %s\n",condicion);
 
-                        if(declaraF(condicion))//llamamos a la funcion para que compruebe si esta bien
-                        {
-                            Estado = q2;//si lo esta cambiamos de estado
+                            if(declaraF(condicion))//llamamos a la funcion para que compruebe si esta bien
+                            {
+                                Estado = q2;//si lo esta cambiamos de estado
+                            }
+                            else
+                            {
+                                Estado = qe;//sino, da un error
+                                printf("Error q1: ");
+                            }
+                            inicio = e;
                         }
-                        else
-                        {
-                            Estado = qe;//sino, da un error
-                            printf("Error q1: ");
-                        }
-                        inicio = e;
-                    }
-                    //lo colvemos a realizar asegurando tomar el ultimo elemento de la cadena, o el unico parametro definido
-                    if(e==finDeclaracion-1){
-                        char condicion[e-inicio+1];
-                        strncpy(condicion, &cadena[inicio+1], (e-inicio+1));
-                        condicion[e-inicio] = '\0';
-                        //printf("lo desarrollo: %s\n",condicion);//
-                        if(declaraF(condicion))
-                        {
-                            Estado = q2;
-                        }
-                        else
-                        {
-                            Estado = qe;
-                            printf("Error q1: ");
+                        //lo colvemos a realizar asegurando tomar el ultimo elemento de la cadena, o el unico parametro definido
+                        if(e==finDeclaracion-1){
+                            char condicion[e-inicio+1];
+                            strncpy(condicion, &cadena[inicio+1], (e-inicio+1));
+                            condicion[e-inicio] = '\0';
+                            //printf("lo desarrollo: %s\n",condicion);//
+                            if(declaraF(condicion))
+                            {
+                                Estado = q2;
+                            }
+                            else
+                            {
+                                Estado = qe;
+                                printf("Error q1: ");
+                            }
                         }
                     }
                 }
-
                 //printf("%s\n", condicion);
 
             }
