@@ -97,6 +97,10 @@ bool entero(char cadena[])
                 {
                     Estado = q1;
                 }
+                else if(Simbolo == ' ')
+                {
+                    Estado = q0;
+                }
                 else
                 {
                     Estado = qe;
@@ -164,6 +168,10 @@ bool flotante(char cadena[])
                 if(EsNumero)
                 {
                     Estado = q1;
+                }
+                else if(Simbolo == ' ')
+                {
+                    Estado = q0;
                 }
                 else
                 {
@@ -270,6 +278,10 @@ bool numero(char cadena[])
                     {
                         Estado = q2;
                     }
+                }
+                else if(Simbolo == ' ')
+                {
+                    Estado = q0;
                 }
                 else
                 {
