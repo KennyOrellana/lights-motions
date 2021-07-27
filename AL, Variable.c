@@ -29,11 +29,11 @@ bool variable(char cadena[])
 	TEstado Estado = q0;
 	int Simbolo;
 	int longitud = 0;
-	int i = 0;
-
 	longitud = strlen(cadena);
 
-	while (longitud > i && Estado != qe)
+	int i = 0;
+
+	while ((longitud > i) && (Estado != qe))
     {
 		Simbolo = cadena[i];
 
@@ -45,6 +45,10 @@ bool variable(char cadena[])
                 {
 					Estado = q1;
 				}
+				else if(Simbolo == ' ')
+                {
+                    Estado = q0;
+                }
 				else
 				{
 					Estado = qe;
