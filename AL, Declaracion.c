@@ -11,6 +11,7 @@ char TablaSimbolosTipos[][16] = {"ENTERO", "FLOTANTE", "BYTE", "NUMERO", "BOOL",
 bool declaracion();
 bool declaracionFuncion();
 
+/*
 int main()
 {
     printf("%i\n", declaracion("BYTE AA = 0 + 1 + 2 + 3"));
@@ -20,7 +21,7 @@ int main()
     //printf("%i", strlen(TablaSimbolosTipos[1]));
     return 0;
 }
-
+*/
 
 bool declaracion(char cadena[])
 {
@@ -160,8 +161,8 @@ bool declaracionFuncion(char cadena[])
             strcpy(partes, token);
 
             char *declaraciones;
-            //declaraciones = strtok(partes," ");
-            /*
+            declaraciones = strtok(partes," ");
+
             int porciones = 0;
 
             while(declaraciones != NULL)
@@ -239,7 +240,6 @@ bool declaracionFuncion(char cadena[])
                 porciones++;
                 declaraciones = strtok(NULL, " ");
             }
-            */
 
             token = strtok(NULL, ",");
         }
