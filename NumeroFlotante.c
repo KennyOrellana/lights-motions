@@ -40,8 +40,8 @@ int main( )
 
 
         //Simbolo = secundari[i];
-        //   EsNumero = (simbolo >='0'&& simbolo <= '9');
-
+        //   Es Numero = (simbolo >='0'&& simbolo <= '9');
+        printf("impreme : %s", &secundari[i]);
         switch ( Estado)
         {
         case q0:
@@ -91,12 +91,14 @@ int main( )
             break;
         }
        //si se leyo algun caracter no valido
-     /*   if(!(secundari[i] >= '0' && secundari[i] <= '9') ||
-                !(secundari[i] >= '0' && secundari[i] <= '9')||
+
+        if(!(secundari[i] >= '0' && secundari[i] <= '9') ||
+
                 !(secundari[i] == '.'))
         {
+
             break;
-        }*/
+        }
         //iterador aunmeta y avanza al siguiente caracter de la cadena
         i++;
 
