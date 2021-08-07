@@ -44,9 +44,8 @@ bool EsColor(Char color[]){
     {
 
 
-        //Simbolo = secundari[i];
-        //   Es Numero = (simbolo >='0'&& simbolo <= '9');
-        printf("impreme : %s", &color[i]);
+
+      //  printf("impreme : %s", &color[i]);
         switch ( Estado)
         {
         case q0:
@@ -61,8 +60,8 @@ bool EsColor(Char color[]){
             }
             break;
         case q1:
-            //Si secundari[i] es un simbolo valido G cambia de estado
-            if(color[i] >= 'G')
+            //Si color[i] es un simbolo valido G cambia de estado
+            if(color[i] == 'G')
             {
                 Estado = q2;
             }else{
@@ -73,7 +72,7 @@ bool EsColor(Char color[]){
             break;
         case q2:
             //Si secundari[i] es un simbolo valido B cambia de estado
-            if(color[i] >= 'B' )
+            if(color[i] == 'B' )
             {
                 Estado = q3;
             }else{
@@ -104,11 +103,11 @@ bool EsColor(Char color[]){
                 break;
             }
             break;
-        case q5:
-              //Si color[i] es un digito entre cero y 255 cambia de estado
-            if(color[i] >= '0' && color[i] <= '255')
+            case q5:
+            //Si secundari[i] es un simbolo (  cambia de estado
+           if(color[i] == ',' )
             {
-                Estado = q6;
+                Estado = q4;
             }else{
 
                 printf("Caracter no valido");
@@ -127,10 +126,32 @@ bool EsColor(Char color[]){
             }
             break;
         case q7:
+            //Si secundari[i] es un simbolo (  cambia de estado
+           if(color[i] == ',' )
+            {
+                Estado = q8;
+            }else{
+
+                printf("Caracter no valido");
+                break;
+            }
+            break;
+        case q8:
+              //Si color[i] es un digito entre cero y 255 cambia de estado
+            if(color[i] >= '0' && color[i] <= '255')
+            {
+                Estado = q9;
+            }else{
+
+                printf("Caracter no valido");
+                break;
+            }
+            break;
+        case q9:
                //Si color[i] es un simbolo )  cambia de estado
            if(color[i] == ')' )
             {
-                Estado = q7;
+                Estado = q9;
             }else{
 
                 printf("Caracter no valido");
