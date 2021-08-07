@@ -1,6 +1,29 @@
-YHWH
-ADONAY
-ELOHIM
-AAABBBCCCDDDEEEFFFGGGHHHIIIJJJKKKLLLMMMNNNOOOPPPQQQRRRSSSTTUUUVVWWWXXXYYYZZZ
-258
-666
+INICIO
+	FUNCION Iniciar()
+		
+		CADENA r1 = "Reflector1"
+		ENTERO r1Potencial = 0
+		FLOTANTE r1Luminosidad = 0.0
+		COLOR r1Color = RGB(0, 0, 0)
+		BOOLEAN r1Encendido = FALSO;
+		
+		SI (r1Encendido == FALSO) ENTONCES
+			
+			r1Color = RGB(255, 255, 255)
+			r1Potencial = 10
+			r1Luminosidad = 80
+			r1Encendido = VERDADERO
+		FIN
+		
+		MIENTRAS (r1Encendido == VERDADERO) HACER
+			r1Luminosidad = r1Luminosidad - r1Potencial
+
+			SI (r1Luminosidad <= 0) ENTONCES
+				r1Encendido = FALSO;
+			FIN
+		FIN
+
+
+		RETORNAR 0;
+	FIN
+FINAL
