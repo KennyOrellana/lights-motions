@@ -1,4 +1,10 @@
 #include "AL, Mientras.c"
+#include "Funcion FUNCION.c"
+#include "Funcion SI.c"
+#include "color.c"
+#include "Apagar.c"
+#include "encendido.c"
+#include "Cadena.c"
 
 #include<stdio.h>
 #include<stdlib.h>
